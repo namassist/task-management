@@ -1,6 +1,6 @@
-import { Droppable, Draggable } from '@hello-pangea/dnd'
-import { type ReactNode, useEffect, useRef } from 'react'
+import { Draggable, Droppable } from '@hello-pangea/dnd'
 import { Loader2 } from 'lucide-react'
+import { type ReactNode, useEffect, useRef } from 'react'
 import { EmptyState } from '@/components/common/EmptyState.tsx'
 import type { Task, TaskStatus } from '@/types/task.ts'
 import { TaskCard } from './TaskCard.tsx'

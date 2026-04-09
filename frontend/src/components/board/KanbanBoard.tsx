@@ -1,9 +1,9 @@
 import { DragDropContext, type DropResult } from '@hello-pangea/dnd'
 import { AlertTriangle, CheckCircle2, Clock3, LayoutList, Loader2, Plus, Rows4 } from 'lucide-react'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import type { SortBy } from '@/api/tasks.ts'
 import { TaskFormDialog } from '@/components/forms/TaskFormDialog.tsx'
 import { useTaskStore } from '@/store/task-store.ts'
-import type { SortBy } from '@/api/tasks.ts'
 import type { CreateTaskInput, Task, TaskStatus, UpdateTaskInput } from '@/types/task.ts'
 import { KanbanColumn } from './KanbanColumn.tsx'
 
@@ -57,7 +57,7 @@ export function KanbanBoard() {
       fetchColumnTasks('Pending', { sortBy: currentSort.sortBy, order: currentSort.order })
       fetchColumnTasks('Completed', { sortBy: currentSort.sortBy, order: currentSort.order })
     }
-  }, [viewMode, sortIndex])
+  }, [viewMode, currentSort.sortBy, currentSort.order, fetchSingleTasks, fetchColumnTasks])
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -240,6 +240,7 @@ export function KanbanBoard() {
               <div className="absolute left-0 top-full z-20 mt-2 w-48 rounded-xl border border-[rgba(255,255,255,0.05)] bg-[rgba(30,30,46,0.95)] p-2 shadow-xl backdrop-blur-md">
                 {SORT_OPTIONS.map((opt, i) => (
                   <button
+                    type="button"
                     key={opt.label}
                     onClick={() => handleSortChange(i)}
                     className={`w-full rounded-lg px-3 py-2 text-left text-sm transition ${

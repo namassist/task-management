@@ -3,9 +3,9 @@ import { persist } from 'zustand/middleware'
 import {
   createTask as apiCreateTask,
   deleteTask as apiDeleteTask,
-  fetchTasks,
   patchTaskStatus as apiPatchTaskStatus,
   updateTask as apiUpdateTask,
+  fetchTasks,
   type SortBy,
 } from '@/api/tasks.ts'
 import type {

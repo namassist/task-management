@@ -1,5 +1,5 @@
-import * as React from 'react'
 import { CalendarDays, CircleDashed, PencilLine } from 'lucide-react'
+import * as React from 'react'
 import { Button } from '@/components/ui/button.tsx'
 import {
   Dialog,
@@ -109,7 +109,9 @@ export function TaskFormDialog({
         status,
       }
 
-      await onSave(task ? (inputData satisfies UpdateTaskInput) : (inputData satisfies CreateTaskInput))
+      await onSave(
+        task ? (inputData satisfies UpdateTaskInput) : (inputData satisfies CreateTaskInput),
+      )
       onOpenChange(false)
     } finally {
       setLoading(false)
@@ -211,7 +213,10 @@ export function TaskFormDialog({
                     onValueChange={(value) => setStatus(value as TaskStatus)}
                     disabled={loading}
                   >
-                    <SelectTrigger id="status" className={errors.status ? 'border border-ctp-red' : ''}>
+                    <SelectTrigger
+                      id="status"
+                      className={errors.status ? 'border border-ctp-red' : ''}
+                    >
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
