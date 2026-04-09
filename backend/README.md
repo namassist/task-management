@@ -146,7 +146,7 @@ backend/
 │       └── express.d.ts          # Express Request type augmentation
 ├── tests/
 │   ├── setup.ts                  # Test harness (supertest + DB cleanup)
-│   └── tasks.test.ts             # 21 integration tests
+│   └── tasks.test.ts             # 30 integration tests
 ├── drizzle/                      # Generated migration files
 ├── drizzle.config.ts             # Drizzle Kit configuration
 ├── jest.config.js                # Jest configuration
@@ -357,7 +357,7 @@ Validation errors include field details:
 
 ## Testing
 
-21 integration tests covering:
+30 integration tests covering:
 
 - CRUD happy paths (create, list, update, patch, delete)
 - Pagination (default limit, custom limit, page navigation)

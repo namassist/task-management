@@ -1,4 +1,4 @@
-import { asc, desc, eq, sql } from 'drizzle-orm'
+import { type AnyColumn, asc, desc, eq, sql } from 'drizzle-orm'
 
 import { db } from '../../db/index.js'
 import { tasks } from '../../db/schema.js'
@@ -39,7 +39,7 @@ export const tasksRepository = {
 
     const orderFn = order === 'asc' ? asc : desc
 
-    let sortColumn: SQL<unknown>
+    let sortColumn: AnyColumn
     switch (sort_by) {
       case 'due_date':
         sortColumn = tasks.dueDate
